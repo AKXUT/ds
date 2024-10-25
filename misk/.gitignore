@@ -1,0 +1,24 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executable files
+*.exe
+*.out
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Dependency files
+*.d
+
+# Temporary files
+*.tmp
+*.~
+
+# Backup files
+*~
+*.bak
