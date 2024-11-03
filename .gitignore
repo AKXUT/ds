@@ -1,0 +1,19 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executable files
+*.exe
+
+# Backup files
+*~
+*#
+
+# Temporary files
+*.tmp
+
+# Build directories
+build/
+Debug/
+Release/
+misk/
