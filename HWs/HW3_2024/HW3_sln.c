@@ -62,18 +62,36 @@ void StackClear(Stack *p) {
 
 // 待判断的字符串保存在数组a中，数组的有效长度保存在n中
 // 通过计算返回0，表示括号不匹配，返回1表示匹配
-int Match(char a[], int n) {
-
-}
-                                
+int Match(char *str) {
+  char ch;
+  int i;
+  Stack S;
+  
+  InitStack(&S);
+  for (i = 0; i < strlen(str); i++) {
+    if (str[i] == '{' || str[i] == '[' || str[i] == '(')
+      Push(&S, str[i]);
+    else if (str[i] == '}' || str[i] == ']' || str[i] == ')') {
+      if (!StackEmpty(&S)) { // 非栈空
+	StackTop(&S, &ch);
+	if ((ch == '(' && str[i] == ')') ||
+	    (ch == '[' && str[i] == ']') ||
+	    (ch == '{' && str[i] == '}') )
+	  Pop(&S, &ch);
+	else     break;
+      }
+      else  break; // 栈空
+    }
+  } // for 结束
+  return (i == strlen(str)) && StackEmpty(&S);
+} // Match结束
 
 int main() {
-  //char str[100] = "()[]{}";
+  char str[100] = "()[]{}";
   //char str[100] = "{[()][(()())]}";
   //char str[100] = "([)]{}";
-  char str[100] = "{[)(]{}}";
+  //char str[100] = "{[)(]{}}";
 
-
-  
+  printf("%d\n", Match(str));
   return 0;
 }        

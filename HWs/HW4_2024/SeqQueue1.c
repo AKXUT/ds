@@ -37,8 +37,8 @@ void EnQue(Que *p, ElemType x) {
   if (QueFull(p))
     puts("error: enqueue to a full queue!");
   else {
-    p->rear = (p->rear + 1) % MAX;
     p->a[p->rear] = x;
+    p->rear = (p->rear + 1) % MAX;
   }
 }
 
