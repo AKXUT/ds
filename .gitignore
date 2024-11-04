@@ -4,6 +4,7 @@
 
 # Executable files
 *.exe
+a.out
 
 # Backup files
 *~
@@ -11,9 +12,14 @@
 
 # Temporary files
 *.tmp
+.DS_Store
+
 
 # Build directories
 build/
 Debug/
 Release/
 misk/
+a.out.dSYM/
+.vscode/
+
