@@ -1,0 +1,16 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     a.out
+relocations:
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000007D0, symSize: 0x3C0 }
+  - { offset: 0xAD, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000007D0, symSize: 0x3C0 }
+  - { offset: 0x16B, size: 0x8, addend: 0x0, symName: _InitList2, symObjAddr: 0x3C0, symBinAddr: 0x100000B90, symSize: 0x40 }
+  - { offset: 0x18F, size: 0x8, addend: 0x0, symName: _InsertElem, symObjAddr: 0x400, symBinAddr: 0x100000BD0, symSize: 0xF0 }
+  - { offset: 0x1E1, size: 0x8, addend: 0x0, symName: _GetElem, symObjAddr: 0x4F0, symBinAddr: 0x100000CC0, symSize: 0x90 }
+  - { offset: 0x225, size: 0x8, addend: 0x0, symName: _PrintList, symObjAddr: 0x580, symBinAddr: 0x100000D50, symSize: 0x70 }
+  - { offset: 0x257, size: 0x8, addend: 0x0, symName: _InitList, symObjAddr: 0x5F0, symBinAddr: 0x100000DC0, symSize: 0x30 }
+  - { offset: 0x27F, size: 0x8, addend: 0x0, symName: _ListFull, symObjAddr: 0x620, symBinAddr: 0x100000DF0, symSize: 0x30 }
+  - { offset: 0x2A7, size: 0x8, addend: 0x0, symName: _ListEmpty, symObjAddr: 0x650, symBinAddr: 0x100000E20, symSize: 0x30 }
+  - { offset: 0x2CF, size: 0x8, addend: 0x0, symName: _ListLen, symObjAddr: 0x680, symBinAddr: 0x100000E50, symSize: 0x20 }
+  - { offset: 0x2F7, size: 0x8, addend: 0x0, symName: _Error, symObjAddr: 0x6A0, symBinAddr: 0x100000E70, symSize: 0x24 }
+...
