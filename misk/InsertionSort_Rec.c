@@ -54,3 +54,16 @@ int main()
   return 0;
 }
 
+BiTreeNode * Search(BiTreeNode *root, DataType item) {
+  BiTreeNode *p;
+  if(root != NULL) {
+    p = root;
+    while(p != NULL) {
+      if(p->data.key == item.key)       return p;
+      if(item.key > p->data.key)        p = p->rightChild;
+      else                              p = p->leftChild;
+    }
+  }
+  return NULL;	
+} 
+

@@ -16,15 +16,11 @@ int cmp(const void *p, const void *q) {
 
 int  BiSearch(int a[], int low, int high, int x) {
   int mid;
-  if (low > high)
-    return -1;
+  if (low > high)          return -1;
   mid = (low + high) / 2;
-  if (a[mid] == x)
-    return mid;
-  else if (a[mid] > x)
-    return BiSearch(a, low, mid-1, x);
-  else
-    return BiSearch(a, mid+1, high, x);
+  if (a[mid] == x)         return mid;
+  else if (a[mid] > x)     return BiSearch(a, low, mid-1, x);
+  else                     return BiSearch(a, mid+1, high, x);
 }
 
 void PrintArr(int a[], int n) {
