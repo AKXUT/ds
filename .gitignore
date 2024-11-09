@@ -20,6 +20,7 @@ build/
 Debug/
 Release/
 misk/
+Latex/
 a.out.dSYM/
 .vscode/
 
