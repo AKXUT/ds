@@ -1,0 +1,10 @@
+HW7:
+任务一：参照压缩包中的heapsort.c程序编写一个heapsort2.c，其作用是利用最小堆实现数组的由大到小排列。
+任务二：参照压缩包中的heapsort.c程序编写一个student_heapsort.c，完成对以下学生类型的数组按学号有小到大排序
+typedef struct {
+  int id;        // 学生学号
+  char name[20]; // 学生姓名
+  int score;     // 学生成绩
+} STU;
+
+注，这次作业要交电子版，截止日期为下周周五晚。

@@ -137,25 +137,58 @@ void AddStu(SeqList *pList)
 // 要求：补充DelStu函数（应该考虑输入参数有哪些？有没有返回值，如果有，返回值的类型是什么？
 //       怎样在删除完一个学生后，把删除掉的学生信息打印到屏幕上。），
 //	 实现学生信息系统的学生删除功能（按学生在顺序表中的序号来删除）。
-DelStu()
+int DelStu(SeqList *list)
 {
+  int i;
+  ElemType temp;
+  printf("please input the location of the student you want to delete\n");
+  scanf("%d", &i);
+  if (i < 1 || i > list->len)
+    return 0;// 没有删除
+
+  DelElem(list, i, &temp);
+  printf("just delet a student %s \n", temp.name);
+  return 1;
+
+}
+// 请把SearchByName函数补充完整
+// 要求：实现SearchByName函数，完成按姓名查找成绩信息的功能，同时打印出找到的学生在顺序表的位置号码，如果没有找到，则给出相应的提示信息。
+int SearchByName(SeqList *list)
+{
+  int i;
+  ElemType temp;
+  char name[20];
+  printf("please input student name\n");
+  scanf("%s", name);
+  for (i = 1; i <= list->len; i++) {
+    GetElem(list, i, &temp);
+    if (!strcmp(temp.name, name))
+      printf("found student at location %d\n", i);
+      return i;
+  }
+  printf("no such student\n");
+  return 0;
 
 }
 
 
 // 请把DelByName函数补充完整
 // 要求：补充DelByName函数，实现学生按姓名删除的功能。
-void DelByName()
+void DelByName(SeqList *list) 
 {
+  ElemType temp;
+  char name[20];
+  printf("please input the student name\n");
+  scanf("%s", name);
 
+  int i;
+  for (i = 1; i <= list->len; i++) {
+    GetElem(list, i, &temp);
+    if (!strcmp(temp.name, name))
+      DelElem(list, i, &temp);
+  }
 }
 
-// 请把SearchByName函数补充完整
-// 要求：实现SearchByName函数，完成按姓名查找成绩信息的功能，同时打印出找到的学生在顺序表的位置号码，如果没有找到，则给出相应的提示信息。
-void SearchByName()
-{
-
-}
 
 /**********************************/
 /* 学生数据的相关操作在这里结束  */

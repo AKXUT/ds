@@ -57,7 +57,6 @@ void PrintGraph(Graph *p) {
     }
 }
 
-
 void DFS(Graph *p, int v) {
   int i;
   visited[v] = 1;
@@ -68,7 +67,6 @@ void DFS(Graph *p, int v) {
       DFS(p, i);
     }
 }
-
 void BFS(Graph *p, int v) {
   Que *q;
   int tmp, i;
@@ -93,9 +91,9 @@ int main() {
   InitGraph(&G);
   CreateGraph(&G);
   PrintGraph(&G);
-  puts("DFS traverse:");
-  DFS(&G, 0);
-  // puts("BFS traverse:");
-  // BFS(&G, 0);
+  //puts("DFS traverse:");
+  //DFS(&G, 0);
+  puts("BFS traverse:");
+  BFS(&G, 0);
   return 0;
 }
