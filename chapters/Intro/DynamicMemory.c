@@ -3,6 +3,7 @@
  *************************************************/
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc/malloc.h>
 
 void createArray(int **p, int n) {
   
@@ -10,8 +11,12 @@ void createArray(int **p, int n) {
 }
 
 int main()
-{ int n = 1000;
+{ int n = 600;
   int *a;
+  size_t num_of_bytes;
+  
   createArray(&a, n);
+  num_of_bytes = malloc_size(a);
+  printf("%d\n", num_of_bytes/sizeof(int));
   return 0;
 }
