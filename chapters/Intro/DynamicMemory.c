@@ -7,7 +7,7 @@
 
 void createArray(int **p, int n) {
   
-  *p = malloc(n *sizeof(int));
+  *p = (int *)malloc(n *sizeof(int));
 }
 
 int main()

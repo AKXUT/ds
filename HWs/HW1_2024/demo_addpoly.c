@@ -14,7 +14,10 @@
 #define N 8   // 数组 b 的大小
 
 // 在这里补充一个结构体定义，包括系数和指数两项内容，同时为该结构体定义一个类型别名 ElemType
-
+typedef struct {
+  int coff; // 系数
+  int expo; // 指数
+} ElemType; // 多项式的一项
 
 // 这是顺序表的结构体定义
 typedef struct list {
@@ -50,12 +53,55 @@ int main() {
 
   // 请将你补充的代码写在这里，
   // 0. 可以按照需要适当增加少量局部变量
+  ElemType tmp;
   // 1. 初始化 A, B, C三个顺序表
+  A = InitList();
+  B = InitList();
+  C = InitList();
   // 2. 完成从 a 数组读入不为零的数据，创建ElemType的项数据，然后逐个插入到 A 顺序表
+  for (i = 0; i < M; i++) {
+    if (a[i] != 0) {
+      tmp.coff = a[i];
+      tmp.expo = i;
+      InsertElem(A, A->len, tmp);
+    }
+  }
   // 3. 完成从 b 数组读入不为零的数据，创建ElemType的项数据，然后逐个插入到 B 顺序表
-  // 4. 将 A 和 B 两个顺序表中保存的多项式进行相加，结果保存在 C 顺序表
+    for (i = 0; i < N; i++) {
+    if (b[i] != 0) {
+      tmp.coff = b[i];
+      tmp.expo = i;
+      InsertElem(B, B->len, tmp);
+    }
+  }
 
-  
+  // 4. 将 A 和 B 两个顺序表中保存的多项式进行相加，结果保存在 C 顺序表
+    i = j = 1;
+    while (i <= A->len && j <= B->len)  {
+      if (A->data[i].expo < B->data[j].expo) {
+	InsertElem(C, C->len, A->data[i]);
+	i++;
+      }
+      else if (A->data[i].expo > B->data[j].expo) {
+	InsertElem(C, C->len, B->data[j]);
+	j++;
+      }
+      else {
+	if (A->data[i].coff == (-1) * B->data[j].coff) {
+	  i++;j++;
+	}
+	else {
+	  tmp.coff = A->data[i].coff + B->data[j].coff;
+	  tmp.expo = i;
+	  InsertElem(C, C->len, tmp);
+	  i++;j++;
+	}
+      }
+    }
+    while (i < A->len) InsertElem(C, C->len, A->data[i++]);
+    while (j < B->len) InsertElem(C, C->len, B->data[j++]);
+
+    PrintList(C);
   return 0;
 }
 
@@ -149,6 +195,6 @@ void PrintList(SeqList *pList) {
     // 添加一条 printf 打印语句，输出顺序表第 i 项的系数和指数
     // 例如：34*X^5，即34乘以X的5次方
     // 输出为：(34, 5)
-    
+    printf("(%d, %d) ", pList->data[i].coff, pList->data[i].expo);
   putchar('\n');
 }

@@ -16,8 +16,8 @@ int addone(int a) {
   return a;
 }
 
-void addone2(int *a) {
-  (*a)++;
+void addone2(int *a) { // a === &x
+  x++;//*a === x
 }
 
 int main() {
